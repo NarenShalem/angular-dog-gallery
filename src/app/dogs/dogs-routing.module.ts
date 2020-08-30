@@ -1,12 +1,14 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { NgModule } from "@angular/core";
+import { FormsModule } from "@angular/forms";
+import { RouterModule, Routes } from "@angular/router";
+import DogsService from "../_services/dogs.service";
+import { DogsComponent } from "./dogs.component";
 
-import { DogsComponent } from './dogs.component';
-
-const routes: Routes = [{ path: '', component: DogsComponent }];
+const routes: Routes = [{ path: "", component: DogsComponent }];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  imports: [RouterModule.forChild(routes), FormsModule],
+  exports: [RouterModule, FormsModule],
+  providers: [DogsService],
 })
-export class DogsRoutingModule { }
+export class DogsRoutingModule {}

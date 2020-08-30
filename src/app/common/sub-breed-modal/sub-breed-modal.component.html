@@ -1,0 +1,53 @@
+<div>
+  <div class="modal-header text-center">
+    <h4 class="modal-title">{{ breedName }}</h4>
+    <button
+      type="button"
+      class="close"
+      aria-label="Close"
+      (click)="handleSubBreedClose()"
+    >
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="container">
+      <div>
+        <p>Sub Breeds</p>
+      </div>
+      <div class="row">
+        <div class="col-md-3" *ngFor="let subBreed of subBreeds">
+          <img
+            class="img-thumbnail random_img"
+            src="{{ subBreed.imageUrl }}"
+            alt="subBreed.name"
+            height="150"
+          />
+          <h5>
+            <span class="badge">{{ subBreed.name }}</span>
+          </h5>
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-4 mx-auto">
+          <div class="text-center">
+            <div *ngIf="subBreeds.length < 1">No Sub Breeds Available</div>
+          </div>
+        </div>
+      </div>
+
+      <p>More Images</p>
+      <div class="row">
+        <div class="col-md-3" *ngFor="let dogMoreImage of dogBreedMoreImages">
+          <img
+            class="img-thumbnail random_img"
+            src="{{ dogMoreImage }}"
+            alt="more breed images"
+            height="150"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

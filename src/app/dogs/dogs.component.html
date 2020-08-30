@@ -1,1 +1,45 @@
-<p>dogs works!</p>
+<div class="container">
+  <!-- Breed search -->
+  <div class="row mb-4">
+    <div class="col-4 mx-auto">
+      <div class="text-center">
+        <input
+          type="search"
+          class="form-control col-sp custom_search"
+          [(ngModel)]="search"
+          placeholder="Type here to filter by breed"
+        />
+      </div>
+    </div>
+  </div>
+  <!-- Breed search ends -->
+
+  <!-- Breed list -->
+  <div class="row">
+    <div
+      class="col-md-2"
+      *ngFor="let dog of dogs | filterSearch: search as folder"
+    >
+      <div (click)="openBreedModal(dog.name, template)">
+        <img
+          class="img-thumbnail random_img"
+          src="{{ dog.imageUrl }}"
+          alt="{{ dog.name }}"
+          height="150"
+        />
+        <h5>
+          <span class="badge">{{ dog.name }}</span>
+        </h5>
+      </div>
+    </div>
+  </div>
+  <!-- Breed list ends-->
+
+  <div class="row">
+    <div class="col-4 mx-auto">
+      <div class="text-center">
+        <div *ngIf="(dogs | filterSearch: search).length < 1">Not Found</div>
+      </div>
+    </div>
+  </div>
+</div>

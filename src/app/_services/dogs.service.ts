@@ -14,10 +14,10 @@ export default class DogsService {
   constructor(private http: HttpClient) {}
 
   /** GET dogs from the server */
-  getDogs(): Observable<any> {
+  getBreeds(): Observable<any> {
     return this.http.get<any[]>(`${this.dogsUrl}/breeds/list/all`).pipe(
       tap((_) => console.log("fetched dogs")),
-      catchError(this.handleError<any[]>("getDogs", []))
+      catchError(this.handleError<any[]>("getBreeds", []))
     );
   }
 

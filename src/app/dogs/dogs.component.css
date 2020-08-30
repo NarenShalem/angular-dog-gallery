@@ -1,8 +1,17 @@
 .random_img {
   height: 150px !important;
   width: 150px !important;
+  border-radius: 8px !important;
 }
 
 .custom_search {
-  min-width: 300px !important;
+  width: 400px !important;
+}
+
+.custom_name {
+  text-transform: capitalize !important;
+}
+
+.grid_item {
+  min-width: 120px;
 }

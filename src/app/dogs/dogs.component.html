@@ -1,15 +1,13 @@
 <div class="container">
   <!-- Breed search -->
   <div class="row mb-4">
-    <div class="col-4 mx-auto">
-      <div class="text-center">
-        <input
-          type="search"
-          class="form-control col-sp custom_search"
-          [(ngModel)]="search"
-          placeholder="Type here to filter by breed"
-        />
-      </div>
+    <div class="col-12">
+      <input
+        type="search"
+        class="form-control col-sp custom_search mx-auto"
+        [(ngModel)]="search"
+        placeholder="Type here to filter by breed"
+      />
     </div>
   </div>
   <!-- Breed search ends -->
@@ -20,15 +18,15 @@
       class="col-md-2"
       *ngFor="let dog of dogs | filterSearch: search as folder"
     >
-      <div (click)="openBreedModal(dog.name, template)">
+      <div (click)="openBreedModal(dog.name)" class="grid_item">
         <img
           class="img-thumbnail random_img"
           src="{{ dog.imageUrl }}"
           alt="{{ dog.name }}"
           height="150"
         />
-        <h5>
-          <span class="badge">{{ dog.name }}</span>
+        <h5 class="text-center">
+          <span class="badge custom_name">{{ dog.name }}</span>
         </h5>
       </div>
     </div>
@@ -37,7 +35,7 @@
 
   <div class="row">
     <div class="col-4 mx-auto">
-      <div class="text-center">
+      <div class="text-secondary">
         <div *ngIf="(dogs | filterSearch: search).length < 1">Not Found</div>
       </div>
     </div>

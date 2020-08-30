@@ -1,4 +1,3 @@
-import { HttpClient } from "@angular/common/http";
 import { Component, OnDestroy, OnInit } from "@angular/core";
 import DogsService from "@app/_services/dogs.service";
 import { BsModalRef } from "ngx-bootstrap/modal";
@@ -18,8 +17,7 @@ export class SubBreedModalComponent implements OnInit, OnDestroy {
 
   constructor(
     public bsModalRef: BsModalRef,
-    private dogsService: DogsService,
-    private http: HttpClient
+    private dogsService: DogsService
   ) {}
 
   //#region handlers

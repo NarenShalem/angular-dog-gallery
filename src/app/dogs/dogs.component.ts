@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit, TemplateRef } from "@angular/core";
+import { Component, OnDestroy, OnInit } from "@angular/core";
 import SubBreedModalComponent from "@app/common/sub-breed-modal/sub-breed-modal.component";
 import { BsModalRef, BsModalService } from "ngx-bootstrap/modal";
 import { Subscription } from "rxjs";
@@ -24,7 +24,7 @@ export class DogsComponent implements OnInit, OnDestroy {
   ) {}
 
   //#region hanlders
-  openBreedModal(breedName: string, template: TemplateRef<any>) {
+  openBreedModal(breedName: string) {
     this.modalRef = this.modalService.show(SubBreedModalComponent, {
       initialState: { breedName: breedName },
     });
@@ -33,12 +33,12 @@ export class DogsComponent implements OnInit, OnDestroy {
   //#endregion
 
   ngOnInit(): void {
-    this.getAllDogs();
+    this.getAllBreeds();
   }
 
-  getAllDogs(): void {
+  getAllBreeds(): void {
     this.dogsSubscription = this.dogsService
-      .getDogs()
+      .getBreeds()
       .subscribe((dogBreed: Dog) => {
         Object.keys(dogBreed.message).map((dog: any) => {
           this.dogsService
